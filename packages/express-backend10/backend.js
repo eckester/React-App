@@ -56,6 +56,7 @@ app.post('/users', (req, res) => {
     const userToAdd = req.body;
     userToAdd.id = (String)(genID());
     addUser(userToAdd);
+    res.status(201);
     res.send();
 });
 
