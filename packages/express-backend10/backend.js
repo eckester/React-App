@@ -54,9 +54,19 @@ const addUser = (user) => {
 
 app.post('/users', (req, res) => {
     const userToAdd = req.body;
+    userToAdd.id = (String)(genID());
     addUser(userToAdd);
     res.send();
 });
+
+const genID = () => {
+    while (true){
+        const id = Math.floor(Math.random() * 1000);
+        if (findUserById(id) === undefined){
+            return id;
+        }
+    }
+}
 
 
 const users = {
