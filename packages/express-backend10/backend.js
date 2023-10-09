@@ -56,18 +56,15 @@ app.post('/users', (req, res) => {
     const userToAdd = req.body;
     userToAdd.id = (String)(genID());
     addUser(userToAdd);
-    res.status(201).send();
+    res.status(201).send(res.json(userToAdd));
 });
 
 app.delete('/users/:id', (req, res) => {
     const id = req.params['id'];
     const userToDel = users['users_list'].findIndex(p => p.id == id);
-    if (userToDel == -1){
-        return res.status(404).send();
-    } else {
-        users['users_list'].splice(userToDel, 1);
-        res.status(204).send();
-    }
+
+    users['users_list'].splice(userToDel, 1);
+    res.status(204).send();
 });
 
 const genID = () => {
