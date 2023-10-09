@@ -10,9 +10,11 @@
   "dependencies": {
     "create-react-app": "^5.0.1"
   },
-  "devDependencies": {},
   "description": "",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
